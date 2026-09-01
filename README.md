@@ -7,9 +7,9 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=25&duration=3800&pause=1100&color=C4B5FD&center=true&vCenter=true&width=820&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+only+counts+the+hours+you+actually+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions">
-  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=25&duration=3800&pause=1100&color=6D28D9&center=true&vCenter=true&width=820&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+only+counts+the+hours+you+actually+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions">
-  <img src="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=25&duration=3800&pause=1100&color=C4B5FD&center=true&vCenter=true&width=820&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+only+counts+the+hours+you+actually+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions" alt="graph neural networks · agent memory · knowledge management">
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=24&duration=3800&pause=1100&color=C4B5FD&center=true&vCenter=true&width=860&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+counts+only+the+hours+you+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions">
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=24&duration=3800&pause=1100&color=6D28D9&center=true&vCenter=true&width=860&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+counts+only+the+hours+you+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions">
+  <img src="https://readme-typing-svg.demolab.com?font=Instrument+Serif&size=24&duration=3800&pause=1100&color=C4B5FD&center=true&vCenter=true&width=860&height=46&lines=graph+neural+networks+%C2%B7+agent+memory+%C2%B7+knowledge+management;building+a+macOS+study+timer+that+counts+only+the+hours+you+sit;private+notes+keep+the+process%2C+public+words+keep+the+conclusions" alt="graph neural networks · agent memory · knowledge management">
 </picture>
 
 </div>
@@ -64,8 +64,8 @@
   <img src="https://raw.githubusercontent.com/snooze26h/snooze26h/output/stats-dark.svg" alt="github stats" width="49%">
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=snooze26h&border_radius=16&background=140,1a1033,120b22&border=3b2a6b&stroke=3b2a6b&ring=b48cff&fire=e9d5ff&currStreakNum=f5f3ff&sideNums=e9d5ff&currStreakLabel=c4b5fd&sideLabels=a78bfa&dates=8b7fb0&card_width=445">
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=snooze26h&border_radius=16&background=140,fbf9ff,f1ecff&border=ddd0fb&stroke=ddd0fb&ring=7c3aed&fire=a21caf&currStreakNum=3b0d8a&sideNums=4c1d95&currStreakLabel=6d28d9&sideLabels=7c3aed&dates=8b7fb8&card_width=445">
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=snooze26h&border_radius=16&background=140%2C1a1033%2C120b22&border=3b2a6b&stroke=3b2a6b&ring=b48cff&fire=e9d5ff&currStreakNum=f5f3ff&sideNums=e9d5ff&currStreakLabel=c4b5fd&sideLabels=a78bfa&dates=8b7fb0&card_width=445">
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=snooze26h&border_radius=16&background=140%2Cfbf9ff%2Cf1ecff&border=ddd0fb&stroke=ddd0fb&ring=7c3aed&fire=a21caf&currStreakNum=3b0d8a&sideNums=4c1d95&currStreakLabel=6d28d9&sideLabels=7c3aed&dates=8b7fb8&card_width=445">
   <img src="https://streak-stats.demolab.com?user=snooze26h&border_radius=16&background=140,1a1033,120b22&border=3b2a6b&stroke=3b2a6b&ring=b48cff&fire=e9d5ff&currStreakNum=f5f3ff&sideNums=e9d5ff&currStreakLabel=c4b5fd&sideLabels=a78bfa&dates=8b7fb0&card_width=445" alt="contribution streak" width="49%">
 </picture>
 
