@@ -10,7 +10,7 @@
 
 ### ✦ about
 
-- 🎓 Third-year undergraduate in **Computer Science and Technology** at **Beijing Jiaotong University**
+- 🎓 Third-year undergraduate in **Computer Science and Technology** at **BJTU**
 - 📫 [snooze062@gmail.com](mailto:snooze062@gmail.com) · [X @snooze26h](https://x.com/snooze26h)
 
 <picture>
