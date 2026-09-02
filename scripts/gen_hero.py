@@ -12,6 +12,8 @@ OUT = os.path.join(os.path.dirname(HERE), "assets")
 os.makedirs(OUT, exist_ok=True)
 fonts = json.load(open(os.path.join(HERE, "fonts.json")))
 img_b64 = base64.b64encode(open(os.path.join(HERE, "kyou.jpg"), "rb").read()).decode()
+rain_b64 = {t: base64.b64encode(open(os.path.join(HERE, f"rain-{t}.jpg"), "rb").read()).decode()
+            for t in ("dark", "light")}
 
 _ttf = {}
 def ttf(key):
@@ -50,7 +52,7 @@ PAL = {
    pillStroke="#8b6ce8", pillFill="#7c3aed", pillFillO=".16", pillText="#e2d9ff",
    bokeh="#ffffff", bokehO="1", spark="#ffffff",
    border="#c4b5fd", borderO=".22", grainO=".045", cursor="#a78bfa", imgBottom=".28",
-   footText="#e9ddff", footSub="#b9a7ea", footMono="#8b7fb8"),
+   footText="#f3ebff", footSub="#c9b8f0", footMono="#9b8cc4", rainLine="#dcd0ff"),
  "light": dict(
    bg0="#fbf9ff", bg1="#f2ecff", bg2="#eef6ef",
    blob1="#c4b5fd", blob2="#f5d0fe", blob3="#a7f3c0", blob4="#ddd6fe",
@@ -60,7 +62,7 @@ PAL = {
    pillStroke="#a78bfa", pillFill="#7c3aed", pillFillO=".08", pillText="#5b21b6",
    bokeh="#c4b5fd", bokehO=".8", spark="#8b5cf6",
    border="#7c3aed", borderO=".18", grainO=".03", cursor="#7c3aed", imgBottom=".45",
-   footText="#3b0d8a", footSub="#6b5aa6", footMono="#8b7fb8"),
+   footText="#3b0d8a", footSub="#5b4a96", footMono="#7c6ba8", rainLine="#7c3aed"),
 }
 
 def star(s):
@@ -106,7 +108,7 @@ def sparkles(p):
             f'</path></g>')
     return "\n".join(out)
 
-PILLS = ["北京交通大学 · 本科", "GNN", "agent memory", "sitzfleisch"]
+PILLS = ["beijing jiaotong university", "computer science", "third-year undergrad"]
 def pills(p, x0=72, y0=356):
     out = []; x = x0
     for t in PILLS:
@@ -187,34 +189,64 @@ def divider(theme):
 </svg>
 '''
 
+def rain(p, seed=11, n=34):
+    """Thin slanted streaks falling across the whole band."""
+    rnd = random.Random(seed)
+    out = []
+    for _ in range(n):
+        x = rnd.uniform(-40, 1240)
+        ln = rnd.uniform(26, 64)
+        dur = rnd.uniform(0.9, 1.9)
+        beg = -rnd.uniform(0, 2.5)
+        o = rnd.uniform(0.10, 0.34)
+        out.append(
+            f'<line x1="{x:.0f}" y1="-80" x2="{x-11:.0f}" y2="{-80+ln:.0f}" stroke-opacity="{o:.2f}">'
+            f'<animateTransform attributeName="transform" type="translate" values="0 0;18 520" '
+            f'dur="{dur:.2f}s" begin="{beg:.2f}s" repeatCount="indefinite"/></line>')
+    return f'<g stroke="{p["rainLine"]}" stroke-width="1.2" stroke-linecap="round">' + "".join(out) + "</g>"
+
+
 def footer(theme):
     p = PAL[theme]
-    css = "".join(fontface(k) for k in ("iserif","jbmono","notoserif")) + BASE_CSS
-    FW, FH = 1200, 170
+    css = "".join(fontface(k) for k in ("iserif", "jbmono", "notoserif")) + BASE_CSS
+    FW, FH = 1200, 380
+    IW = 640                      # width of the still before it fades into the gradient
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FW} {FH}" width="{FW}" height="{FH}" role="img" aria-label="私人笔记留过程，公开文字留结论">
+<title>私人笔记留过程，公开文字留结论 — private notes keep the process, public words keep the conclusions</title>
 <defs>
 <style><![CDATA[{css}]]></style>
-<clipPath id="card"><rect x="0" y="0" width="{FW}" height="{FH}" rx="28" ry="28"/></clipPath>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{p['bg2']}"/><stop offset=".5" stop-color="{p['bg1']}"/><stop offset="1" stop-color="{p['bg0']}"/></linearGradient>
-<filter id="blur60" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter>
-<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+<clipPath id="fcard"><rect x="0" y="0" width="{FW}" height="{FH}" rx="28" ry="28"/></clipPath>
+<linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{p['bg1']}"/><stop offset=".55" stop-color="{p['bg0']}"/><stop offset="1" stop-color="{p['bg2']}"/></linearGradient>
+<linearGradient id="ffade" gradientUnits="userSpaceOnUse" x1="{IW-260}" y1="0" x2="{IW}" y2="0">
+  <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+</linearGradient>
+<linearGradient id="ffadeV" gradientUnits="userSpaceOnUse" x1="0" y1="{FH-90}" x2="0" y2="{FH}">
+  <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/>
+</linearGradient>
+<mask id="fmask"><g mask="url(#fmaskV)"><rect x="0" y="0" width="{IW}" height="{FH}" fill="url(#ffade)"/></g></mask>
+<mask id="fmaskV"><rect x="0" y="0" width="{IW}" height="{FH}" fill="url(#ffadeV)"/></mask>
+<filter id="fblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+<filter id="fgrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
 </defs>
-<g clip-path="url(#card)">
-<rect width="{FW}" height="{FH}" fill="url(#bg)"/>
-<g filter="url(#blur60)">
-<ellipse cx="180" cy="190" rx="360" ry="120" fill="{p['blob1']}" opacity="{p['blob1o']}"><animate attributeName="cx" values="180;260;180" dur="18s" repeatCount="indefinite"/></ellipse>
-<ellipse cx="1040" cy="190" rx="300" ry="110" fill="{p['blob3']}" opacity="{p['blob3o']}"/>
-<ellipse cx="640" cy="-40" rx="320" ry="110" fill="{p['blob2']}" opacity="{p['blob2o']}"><animate attributeName="cx" values="640;560;640" dur="22s" repeatCount="indefinite"/></ellipse>
+<g clip-path="url(#fcard)">
+<rect width="{FW}" height="{FH}" fill="url(#fbg)"/>
+<g filter="url(#fblur)">
+<ellipse cx="1010" cy="330" rx="330" ry="150" fill="{p['blob1']}" opacity="{p['blob1o']}"><animate attributeName="cy" values="330;380;330" dur="19s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="1140" cy="40" rx="260" ry="110" fill="{p['blob2']}" opacity="{p['blob2o']}"/>
+<ellipse cx="760" cy="190" rx="220" ry="180" fill="{p['blob4']}" opacity="{p['blob4o']}"><animate attributeName="rx" values="220;270;220" dur="16s" repeatCount="indefinite"/></ellipse>
 </g>
-<rect width="{FW}" height="{FH}" filter="url(#grain)" opacity="{p['grainO']}"/>
-<g transform="translate(600 40)"><path d="{star(8)}" fill="{p['spark']}" opacity=".9"><animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/></path></g>
-<text x="600" y="86" text-anchor="middle" class="foot-cn" fill="{p['footText']}">私人笔记留过程，公开文字留结论</text>
-<text x="600" y="120" text-anchor="middle" class="foot-en" fill="{p['footSub']}">private notes keep the process, public words keep the conclusions.</text>
-<text x="600" y="150" text-anchor="middle" class="over" fill="{p['footMono']}">snooze26h  ·  beijing jiaotong university</text>
+<image href="data:image/jpeg;base64,{rain_b64[theme]}" x="0" y="0" width="{IW}" height="{FH}" preserveAspectRatio="xMidYMid slice" mask="url(#fmask)"/>
+{rain(p)}
+<rect width="{FW}" height="{FH}" filter="url(#fgrain)" opacity="{p['grainO']}"/>
+<text x="1140" y="176" text-anchor="end" class="foot-cn" fill="{p['footText']}">私人笔记留过程，公开文字留结论</text>
+<text x="1140" y="216" text-anchor="end" class="foot-en" fill="{p['footSub']}">private notes keep the process, public words keep the conclusions.</text>
+<line x1="960" y1="248" x2="1140" y2="248" stroke="{p['border']}" stroke-opacity=".5"/>
+<text x="1140" y="278" text-anchor="end" class="over" fill="{p['footMono']}">snooze26h  ·  bjtu</text>
 <rect x="1" y="1" width="{FW-2}" height="{FH-2}" rx="27" fill="none" stroke="{p['border']}" stroke-opacity="{p['borderO']}" stroke-width="1.5"/>
 </g>
 </svg>
 '''
+
 
 for theme in ("dark", "light"):
     for name, fn in (("hero", hero), ("divider", divider), ("footer", footer)):

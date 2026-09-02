@@ -76,10 +76,9 @@
 <rect x="526.5" y="160" width="7" height="64" rx="2" fill="#a78bfa"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
 <text x="72" y="282" class="tag" fill="#ede9fe">the day starts when you sit down.</text>
 <text x="72" y="318" class="cn" fill="#b9a7ea">一天从坐下那一刻开始。</text>
-<rect x="72.0" y="356" width="160.6" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="86.0" y="374.5" class="pill" fill="#e2d9ff">北京交通大学 · 本科</text>
-<rect x="242.6" y="356" width="51.4" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="256.6" y="374.5" class="pill" fill="#e2d9ff">GNN</text>
-<rect x="304.0" y="356" width="121.6" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="318.0" y="374.5" class="pill" fill="#e2d9ff">agent memory</text>
-<rect x="435.6" y="356" width="113.8" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="449.6" y="374.5" class="pill" fill="#e2d9ff">sitzfleisch</text>
+<rect x="72.0" y="356" width="238.6" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="86.0" y="374.5" class="pill" fill="#e2d9ff">beijing jiaotong university</text>
+<rect x="320.6" y="356" width="152.8" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="334.6" y="374.5" class="pill" fill="#e2d9ff">computer science</text>
+<rect x="483.4" y="356" width="184.0" height="28" rx="14" fill="#7c3aed" fill-opacity=".16" stroke="#8b6ce8" stroke-opacity=".75" stroke-width="1"/><text x="497.4" y="374.5" class="pill" fill="#e2d9ff">third-year undergrad</text>
 <rect x="1" y="1" width="1198" height="478" rx="27" fill="none" stroke="#c4b5fd" stroke-opacity=".22" stroke-width="1.5"/>
 </g>
 </svg>
