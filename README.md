@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-dark.svg" alt="snooze26h — the day starts when you sit down" width="100%">
+  <img src="assets/hero-dark.svg" alt="snooze26h — code, notes, and side projects." width="100%">
 </picture>
 
 </div>
@@ -51,7 +51,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
-  <img src="assets/footer-dark.svg" alt="私人笔记留过程，公开文字留结论" width="100%">
+  <img src="assets/footer-dark.svg" alt="谢谢你来看看。 — thanks for stopping by." width="100%">
 </picture>
 
 <p align="right"><sub>art · CLANNAD © Key · Kyoto Animation</sub></p>

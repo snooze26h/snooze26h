@@ -126,8 +126,8 @@ def hero(theme):
     css = "".join(fontface(k) for k in ("outfit","iserif","jbmono","notoserif","notosans")) + BASE_CSS
     name_w = width("outfit", "snooze26h", 92, letter_spacing=-2)
     cursor_x = 72 + name_w + 12
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="snooze26h — the day starts when you sit down">
-<title>snooze26h — the day starts when you sit down</title>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="snooze26h — code, notes, and side projects.">
+<title>snooze26h — code, notes, and side projects.</title>
 <defs>
 <style><![CDATA[{css}]]></style>
 <clipPath id="card"><rect x="0" y="0" width="{W}" height="{H}" rx="28" ry="28"/></clipPath>
@@ -168,8 +168,8 @@ def hero(theme):
 <text x="72" y="222" class="name" fill="{p['nameGlow']}" opacity="{p['glowO']}" filter="url(#blur18)">snooze26h</text>
 <text x="72" y="222" class="name" fill="url(#nameGrad)">snooze26h</text>
 <rect x="{cursor_x:.1f}" y="160" width="7" height="64" rx="2" fill="{p['cursor']}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
-<text x="72" y="282" class="tag" fill="{p['tag']}">the day starts when you sit down.</text>
-<text x="72" y="318" class="cn" fill="{p['cn']}">一天从坐下那一刻开始。</text>
+<text x="72" y="282" class="tag" fill="{p['tag']}">code, notes, and side projects.</text>
+<text x="72" y="318" class="cn" fill="{p['cn']}">代码、笔记和一些小项目。</text>
 {pills(p)}
 <rect x="1" y="1" width="{W-2}" height="{H-2}" rx="27" fill="none" stroke="{p['border']}" stroke-opacity="{p['borderO']}" stroke-width="1.5"/>
 </g>
@@ -211,8 +211,8 @@ def footer(theme):
     css = "".join(fontface(k) for k in ("iserif", "jbmono", "notoserif")) + BASE_CSS
     FW, FH = 1200, 380
     IW = 640                      # width of the still before it fades into the gradient
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FW} {FH}" width="{FW}" height="{FH}" role="img" aria-label="私人笔记留过程，公开文字留结论">
-<title>私人笔记留过程，公开文字留结论 — private notes keep the process, public words keep the conclusions</title>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FW} {FH}" width="{FW}" height="{FH}" role="img" aria-label="谢谢你来看看。">
+<title>谢谢你来看看。 — thanks for stopping by.</title>
 <defs>
 <style><![CDATA[{css}]]></style>
 <clipPath id="fcard"><rect x="0" y="0" width="{FW}" height="{FH}" rx="28" ry="28"/></clipPath>
@@ -238,8 +238,8 @@ def footer(theme):
 <image href="data:image/jpeg;base64,{rain_b64[theme]}" x="0" y="0" width="{IW}" height="{FH}" preserveAspectRatio="xMidYMid slice" mask="url(#fmask)"/>
 {rain(p)}
 <rect width="{FW}" height="{FH}" filter="url(#fgrain)" opacity="{p['grainO']}"/>
-<text x="1140" y="176" text-anchor="end" class="foot-cn" fill="{p['footText']}">私人笔记留过程，公开文字留结论</text>
-<text x="1140" y="216" text-anchor="end" class="foot-en" fill="{p['footSub']}">private notes keep the process, public words keep the conclusions.</text>
+<text x="1140" y="176" text-anchor="end" class="foot-cn" fill="{p['footText']}">谢谢你来看看。</text>
+<text x="1140" y="216" text-anchor="end" class="foot-en" fill="{p['footSub']}">thanks for stopping by.</text>
 <line x1="960" y1="248" x2="1140" y2="248" stroke="{p['border']}" stroke-opacity=".5"/>
 <text x="1140" y="278" text-anchor="end" class="over" fill="{p['footMono']}">snooze26h  ·  bjtu</text>
 <rect x="1" y="1" width="{FW-2}" height="{FH-2}" rx="27" fill="none" stroke="{p['border']}" stroke-opacity="{p['borderO']}" stroke-width="1.5"/>
