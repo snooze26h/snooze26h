@@ -78,10 +78,8 @@ BASE_CSS = """
 .over{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px;letter-spacing:2.5px}
 .name{font-family:'Outfit',sans-serif;font-weight:800;font-size:92px;letter-spacing:-2px}
 .tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:33px}
-.cn{font-family:'Noto Serif SC',serif;font-weight:600;font-size:18px;letter-spacing:1.5px}
-.pill{font-family:'JetBrains Mono','Noto Sans SC',monospace;font-weight:500;font-size:13px}
-.foot-cn{font-family:'Noto Serif SC',serif;font-weight:600;font-size:22px;letter-spacing:2px}
-.foot-en{font-family:'Instrument Serif',serif;font-style:italic;font-size:21px}
+.pill{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px}
+.foot-en{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px}
 """
 
 def bokeh(p, seed=7, n=16):
@@ -109,10 +107,10 @@ def sparkles(p):
     return "\n".join(out)
 
 PILLS = ["beijing jiaotong university", "computer science", "third-year undergrad"]
-def pills(p, x0=72, y0=356):
+def pills(p, x0=72, y0=326):
     out = []; x = x0
     for t in PILLS:
-        tw = width("jbmono", t, 13, fallback="notosans")
+        tw = width("jbmono", t, 13)
         w = tw + 28
         out.append(
             f'<rect x="{x:.1f}" y="{y0}" width="{w:.1f}" height="28" rx="14" fill="{p["pillFill"]}" fill-opacity="{p["pillFillO"]}" '
@@ -123,7 +121,7 @@ def pills(p, x0=72, y0=356):
 
 def hero(theme):
     p = PAL[theme]
-    css = "".join(fontface(k) for k in ("outfit","iserif","jbmono","notoserif","notosans")) + BASE_CSS
+    css = "".join(fontface(k) for k in ("outfit","iserif","jbmono")) + BASE_CSS
     name_w = width("outfit", "snooze26h", 92, letter_spacing=-2)
     cursor_x = 72 + name_w + 12
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="snooze26h — code, notes, and side projects.">
@@ -169,7 +167,6 @@ def hero(theme):
 <text x="72" y="222" class="name" fill="url(#nameGrad)">snooze26h</text>
 <rect x="{cursor_x:.1f}" y="160" width="7" height="64" rx="2" fill="{p['cursor']}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
 <text x="72" y="282" class="tag" fill="{p['tag']}">code, notes, and side projects.</text>
-<text x="72" y="318" class="cn" fill="{p['cn']}">代码、笔记和一些小项目。</text>
 {pills(p)}
 <rect x="1" y="1" width="{W-2}" height="{H-2}" rx="27" fill="none" stroke="{p['border']}" stroke-opacity="{p['borderO']}" stroke-width="1.5"/>
 </g>
@@ -208,11 +205,11 @@ def rain(p, seed=11, n=34):
 
 def footer(theme):
     p = PAL[theme]
-    css = "".join(fontface(k) for k in ("iserif", "jbmono", "notoserif")) + BASE_CSS
+    css = "".join(fontface(k) for k in ("iserif", "jbmono")) + BASE_CSS
     FW, FH = 1200, 380
     IW = 640                      # width of the still before it fades into the gradient
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FW} {FH}" width="{FW}" height="{FH}" role="img" aria-label="谢谢你来看看。">
-<title>谢谢你来看看。 — thanks for stopping by.</title>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FW} {FH}" width="{FW}" height="{FH}" role="img" aria-label="thanks for stopping by.">
+<title>thanks for stopping by.</title>
 <defs>
 <style><![CDATA[{css}]]></style>
 <clipPath id="fcard"><rect x="0" y="0" width="{FW}" height="{FH}" rx="28" ry="28"/></clipPath>
@@ -238,8 +235,7 @@ def footer(theme):
 <image href="data:image/jpeg;base64,{rain_b64[theme]}" x="0" y="0" width="{IW}" height="{FH}" preserveAspectRatio="xMidYMid slice" mask="url(#fmask)"/>
 {rain(p)}
 <rect width="{FW}" height="{FH}" filter="url(#fgrain)" opacity="{p['grainO']}"/>
-<text x="1140" y="176" text-anchor="end" class="foot-cn" fill="{p['footText']}">谢谢你来看看。</text>
-<text x="1140" y="216" text-anchor="end" class="foot-en" fill="{p['footSub']}">thanks for stopping by.</text>
+<text x="1140" y="196" text-anchor="end" class="foot-en" fill="{p['footText']}">thanks for stopping by.</text>
 <line x1="960" y1="248" x2="1140" y2="248" stroke="{p['border']}" stroke-opacity=".5"/>
 <text x="1140" y="278" text-anchor="end" class="over" fill="{p['footMono']}">snooze26h  ·  bjtu</text>
 <rect x="1" y="1" width="{FW-2}" height="{FH-2}" rx="27" fill="none" stroke="{p['border']}" stroke-opacity="{p['borderO']}" stroke-width="1.5"/>

@@ -51,7 +51,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
-  <img src="assets/footer-dark.svg" alt="谢谢你来看看。 — thanks for stopping by." width="100%">
+  <img src="assets/footer-dark.svg" alt="thanks for stopping by." width="100%">
 </picture>
 
 <p align="right"><sub>art · CLANNAD © Key · Kyoto Animation</sub></p>
