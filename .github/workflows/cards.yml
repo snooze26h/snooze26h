@@ -26,17 +26,6 @@ jobs:
 
       # CARDS_TOKEN 是可选的 PAT：默认的 GITHUB_TOKEN 只能看到公开仓库，
       # 会让 repos 数和语言占比漏掉私有仓库；没配置时自动退回默认 token
-      # TEMP 诊断：只看 secret 是否注入成功，不输出值
-      - name: probe CARDS_TOKEN
-        env:
-          T: ${{ secrets.CARDS_TOKEN }}
-        run: |
-          if [ -z "$T" ]; then
-            echo "CARDS_TOKEN is EMPTY -> falling back to GITHUB_TOKEN"
-          else
-            echo "CARDS_TOKEN present: len=${#T} prefix=${T:0:11}"
-          fi
-
       - name: generate stats + streak cards
         run: python scripts/gen_cards.py
         env:
