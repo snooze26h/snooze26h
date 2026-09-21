@@ -1,2 +1,4 @@
 dist/
 .DS_Store
+.cards-data.json
+__pycache__/
