@@ -43,6 +43,10 @@ jobs:
             dist/snake-dark.svg?palette=github-dark&color_snake=#b48cff&color_dots=#2a1d52,#4c3390,#6d4fc2,#9d7bd8,#d9ccff
             dist/snake-light.svg?palette=github-light&color_snake=#7c3aed&color_dots=#e6ddfb,#c9b6f7,#a98df0,#8560e3,#5b2fc9
 
+      # snk 是 docker action，以 root 身份写产物，后续步骤要先拿回属主才能改写
+      - name: take ownership of the snk output
+        run: sudo chown -R "$(id -u):$(id -g)" dist
+
       # 发布会用 dist 整体替换 output 分支，缺文件等于删文件；
       # 所以 snk 失败时得把上一版蛇图捞回来，否则 README 上的蛇会裂成 404
       - name: reuse last published snake if generation failed
